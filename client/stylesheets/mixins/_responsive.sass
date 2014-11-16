@@ -1,5 +1,13 @@
 
-=bigger-than($sizing)
+=width-bigger-than($sizing)
   @media screen and (min-width: $sizing) 
+    @content
+
+=size-bigger-than($width, $height)
+  @media screen and (min-height: $height) and (min-width: $width) 
+    @content
+
+=height-bigger-than($sizing)
+  @media screen and (min-height: $sizing) 
     @content
 

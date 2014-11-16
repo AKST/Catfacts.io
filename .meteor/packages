@@ -10,4 +10,6 @@ vasaka:livescript-compiler
 mquandalle:jade
 jquery
 reywood:bootstrap3-sass
+iron:router
+reactive-var
 

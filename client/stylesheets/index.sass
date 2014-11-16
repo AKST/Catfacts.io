@@ -1,19 +1,25 @@
 @import ../../.meteor/local/build/programs/server/assets/packages/reywood_bootstrap3-sass/_bootstrap.scss
 
 @import mixins/responsive
+@import mixins/formating
 @import components/buttons
 
+body, html
+  height: 100%
 
 #app
   @extend .container
+  
+  +size-bigger-than(450px, 450px)
+    +vertical-center
 
-  +bigger-than(450px)
+  +width-bigger-than(450px)
     max-width: 450px 
-    margin-left: auto
-    margin-right: auto
+    // margin-left: auto
+    // margin-right: auto
 
-  +bigger-than(720px)
+  +width-bigger-than(720px)
     max-width: 720px 
-    margin-left: auto
-    margin-right: auto
+    // margin-left: auto
+    // margin-right: auto
 

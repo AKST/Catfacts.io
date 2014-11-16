@@ -1,19 +1,23 @@
+
+
 head
   meta(http-equiv="X-UA-Compatible", content="IE=edge")
-  meta(name="viewport", content="width=device-width, inital-scale=1")
+  meta(name="viewport", content="width=device-width, initial-scale=1")
   title Catfacts.io
 
-body
+
+template(name='main')
   main#app
-    h1 Welcome to Catfacts.io
-       small MeWow
+    h1 Catfacts.io
+       small Mewow
 
-    +hello
-
-template(name='hello')
-  div.hello-clicker
-    button(type='button').btn.btn-default. Click Me
-    p.message. 
-      You've pressed the button #{counter} times.
+    +yield 'body'
 
 
+template(name='signup')
+  form.signup.input-group
+    div.input-group-btn
+      button(type="submit", disabled=disabled).btn.btn-default Sign Up
+    input(type="text", name='phone-number', placeholder="your internation number").form-control
+
+ 
