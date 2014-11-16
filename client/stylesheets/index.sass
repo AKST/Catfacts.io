@@ -1,16 +1,16 @@
-=bigger-than($sizing)
-  @media screen and (min-width: $sizing) 
-    @content
+@import ../../.meteor/local/build/programs/server/assets/packages/reywood_bootstrap3-sass/_bootstrap.scss
 
-*
-  font-family: 'Helvetica Neue'
+@import mixins/responsive
+@import components/buttons
 
-h1
-  font-weight: 900
 
-body
-  margin-left:  20px
-  margin-right: 20px
+#app
+  @extend .container
+
+  +bigger-than(450px)
+    max-width: 450px 
+    margin-left: auto
+    margin-right: auto
 
   +bigger-than(720px)
     max-width: 720px 

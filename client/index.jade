@@ -1,14 +1,19 @@
 head
+  meta(http-equiv="X-UA-Compatible", content="IE=edge")
+  meta(name="viewport", content="width=device-width, inital-scale=1")
   title Catfacts.io
 
 body
-  h1 Welcome to Catfacts.io
-  h2 MeWow
+  main#app
+    h1 Welcome to Catfacts.io
+       small MeWow
 
-  +hello
+    +hello
 
 template(name='hello')
-  button Click Me
-  p You've pressed the button #{counter} times.
+  div.hello-clicker
+    button(type='button').btn.btn-default. Click Me
+    p.message. 
+      You've pressed the button #{counter} times.
 
 
