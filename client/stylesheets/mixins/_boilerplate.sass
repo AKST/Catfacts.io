@@ -1,0 +1,17 @@
+
+=keyframes($name)
+  @keyframes #{$name}
+    @content
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+
+=apply-animation($stuff)
+  -webkit-animation: $stuff
+  -moz-animation: $stuff
+  -o-animation: $stuff
+  animation: $stuff
+ 

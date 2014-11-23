@@ -1,11 +1,29 @@
 @import ../../.meteor/local/build/programs/server/assets/packages/reywood_bootstrap3-sass/_bootstrap.scss
 
+@import mixins/boilerplate
 @import mixins/responsive
 @import mixins/formating
+@import animations/images
 @import components/buttons
+
 
 body, html
   height: 100%
+
+// this body after is for a transparent 
+// background image it's transparent because
+body::after
+  content: ''
+  opacity: 0.75
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  position: absolute
+  z-index: -1
+  background-image: url('img/art-cat-100-ughh-so-boring.gif')
+  background-repeat: repeat
+  +apply-animation(drift 2s infinite linear)
 
 #app
   @extend .container

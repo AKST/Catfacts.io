@@ -6,10 +6,10 @@ head
   title Catfacts.io
 
 
-template(name='main')
+template(name='center')
   main#app
-    h1 Catfacts.io
-       small Mewow
+    h1#title Catfacts.io
+       small Meewow
 
     +yield 'body'
 
@@ -17,7 +17,7 @@ template(name='main')
 template(name='signup')
   form.signup.input-group
     div.input-group-btn
-      button(type="submit", disabled=disabled).btn.btn-default Sign Up
+      button(type="submit", disabled=disabled).btn.btn-success Sign Up
     input(type="text", name='phone-number', placeholder="your internation number").form-control
 
  

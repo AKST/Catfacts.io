@@ -12,4 +12,7 @@ jquery
 reywood:bootstrap3-sass
 iron:router
 reactive-var
+mrt:moment
+mrt:twilio-meteor
+matb33:collection-hooks
 

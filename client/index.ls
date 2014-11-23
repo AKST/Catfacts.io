@@ -1,9 +1,7 @@
-Router.configure do
-  layoutTemplate: \main
-
 
 Router.route '/', ->
-  @render \signup, do
+  @layout \center
+  @render \signup,
     to: \body
 
 
@@ -13,12 +11,12 @@ Template.signup.created = ->
 
 Template.signup.helpers do
   disabled: -> 
-    not Template.instance!.submitable.get!
+    not Template.instance!submitable.get!
 
 
 Template.signup.events do
   'keydown input, keyup input': (e, self) ->
-    self.submitable.set validate-phone-number e.target.value
+    self.submitable.set IsValid.phone-number e.target.value
     # when enter key is hit submit form
     if self.submitable.get! and e.key-code is 13
       self.$('form').submit()
@@ -26,16 +24,11 @@ Template.signup.events do
   'submit': (e, self) ->
     self.submitable.set false
     field = self.$ 'input[name=phone-number]'
-    if validate-phone-number field.val!
-      # checked incase it didn't disable properly
+    phone-number = field.val!
+    # checked incase it didn't disable properly
+    if IsValid.phone-number phone-number 
       field.val '' 
+      Meteor.call 'textMessage', phone-number
     return false
-
-
-validate-phone-number = (number) ->
-  return false unless number[0] is '+'
-  return false unless number.length > 8
-  return false unless _.all (number.split ''), (e) -> e in '0123456789+ '
-  return true
 
 
