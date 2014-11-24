@@ -12,7 +12,9 @@
   phone-number: (fn) ->
     (phone-number) ->
       if IsValid.phone-number phone-number
-        fn phone-number
+        return fn phone-number
+      else 
+        new Error "invalid phone number" 
 
 
 

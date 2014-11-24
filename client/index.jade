@@ -17,11 +17,30 @@ template(name='center')
 template(name='signup')
   form.signup.input-group
     div.input-group-btn
-      button(type="submit", disabled=disabled).btn.btn-success Sign Up
-    input(type="text", name='phone-number', placeholder="your internation number").form-control
+      if disableInput
+        button(type="submit" disabled=disableSubmit).btn.btn-success.loading
+          img(src='/img/cutie-pu-tutie.png').spiny-cat
+      else 
+        button(type="submit" disabled=disableSubmit).btn.btn-success 
+          | Ping
+
+    input(type="text" 
+          disabled=disableInput 
+          name='phone-number' 
+          placeholder="your international number" 
+          autocomplete="off").form-control
 
   p.twitter-handle
-    a(href="https://twitter.com/Angus_KST") 
-      | @Angus_KST
+    small
+      a(href="https://twitter.com/Angus_KST") 
+        | @Angus_KST
 
+  if showWarning
+    div(role="alert").alert.alert-warning.fade.in   
+      | Hmm, that doesn't seem right, are you sure it's an internal number?
+      | If you're unsure just check to see how your phone formats the number.
+
+  if showSuccess
+    div(role="alert").alert.alert-success.fade.in   
+      | It's almost there!
  

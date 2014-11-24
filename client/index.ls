@@ -7,11 +7,37 @@ Router.route '/', ->
 
 Template.signup.created = ->
   @submitable = new ReactiveVar false
+  @editable = new ReactiveVar true
+  @show-warning = new ReactiveVar false
+  @show-success = new ReactiveVar false
 
 
 Template.signup.helpers do
-  disabled: -> 
+  disable-submit: -> 
     not Template.instance!submitable.get!
+
+  disable-input: ->
+    not Template.instance!editable.get!
+
+  show-warning: ->
+    self = Template.instance!
+    show = self.show-warning.get!
+    if self.show-warning.get!
+      <-! Events.wait 10000
+      self.$ '.alert-warning' .remove-class 'in'
+      <-! Events.wait 1000 
+      self.show-warning.set false
+    return show
+
+  show-success: -> 
+    self = Template.instance!
+    show = self.show-success.get!
+    if self.show-success.get!
+      <-! Events.wait 2500 
+      self.$ '.alert-success' .remove-class 'in'
+      <-! Events.wait 1000
+      self.show-success.set false
+    return show
 
 
 Template.signup.events do
@@ -27,8 +53,15 @@ Template.signup.events do
     phone-number = field.val!
     # checked incase it didn't disable properly
     if IsValid.phone-number phone-number 
-      field.val '' 
-      Meteor.call 'textMessage', phone-number
+      self.editable.set false
+      error, result <- Meteor.call 'textMessage', phone-number
+      self.editable.set true
+      unless error?
+        field.val ''
+        self.show-success.set true
+      else
+        self.show-warning.set true
+
     return false
 
 
