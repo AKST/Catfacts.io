@@ -7,11 +7,15 @@ head
 
 
 template(name='center')
+
   main#app
     h1#title Catfacts.io
        small Meewow
 
     +yield 'body'
+
+  section(style="display: none")#preload
+    img(src='/img/cutie-pu-tutie.png')
 
 
 template(name='signup')
@@ -19,7 +23,7 @@ template(name='signup')
     div.input-group-btn
       if disableInput
         button(type="submit" disabled=disableSubmit).btn.btn-success.loading
-          img(src='/img/cutie-pu-tutie.png').spiny-cat
+          img(src='/img/cutie-pu-tutie.png' width="20" height="20").spiny-cat
       else 
         button(type="submit" disabled=disableSubmit).btn.btn-success 
           | Ping
