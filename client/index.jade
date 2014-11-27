@@ -8,6 +8,11 @@ head
 
 template(name='center')
 
+  a(href="https://github.com/akst/CatFacts.io")#forkMeBaby
+    img(style="position: absolute; top: 0; right: 0; border: 0;" alt="Fork me on GitHub"
+        src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" 
+        data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png")
+
   main#app
     h1#title Catfacts.io
        small Meewow
@@ -41,8 +46,10 @@ template(name='signup')
 
   if showWarning
     div(role="alert").alert.alert-warning.fade.in   
-      | Hmm, that doesn't seem right, are you sure it's an internal number?
-      | If you're unsure just check to see how your phone formats the number.
+      | Hmm, that doesn't seem right, are you sure this is an international 
+      | number? If you're unsure how to format the number, just enter it as 
+      | contact in your phone and it should be formatted into an international 
+      | number.
 
   if showSuccess
     div(role="alert").alert.alert-success.fade.in   

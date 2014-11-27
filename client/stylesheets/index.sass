@@ -25,6 +25,10 @@ body::after
   background-repeat: repeat
   +apply-animation(drift 2s infinite linear)
 
+#forkMeBaby
+  +size-smaller-than(450px, 450px)
+    display: none
+
 #app
   @extend .container
   
