@@ -1,4 +1,5 @@
 CatFacts
 ========
  
-For all your unsolicited catfact needs.
+Fun for the whole family.
+
